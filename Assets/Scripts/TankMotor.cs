@@ -20,7 +20,8 @@ public class TankMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       Move(data.moveSpeed);
+       Rotate(data.rotateSpeed);
     }
     public void Move(float speed)
     {
@@ -43,10 +44,9 @@ public class TankMotor : MonoBehaviour
         Vector3 rotateVector = Vector3.up*speed*Time.deltaTime;
 
         // Start by rotating right by one degree per frame draw. Left is just "negative right".
-        rotateVector = Vector3.up;
 
-      
+
         // Now, rotate our tank by this value - we want to rotate in our local space (not in world space).
-       tf.Rotate(rotateVector, Space.Self);
+       tf.Rotate(rotateVector,Space.Self);
     }
 }
