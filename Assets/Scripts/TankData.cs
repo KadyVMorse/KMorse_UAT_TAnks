@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankData : MonoBehaviour
 {
-    public float moveSpeed;
-    public float rotateSpeed = 180;
+    public float moveSpeed = 3.0f;
+    public float rotateSpeed = 180.0f;
    
 }

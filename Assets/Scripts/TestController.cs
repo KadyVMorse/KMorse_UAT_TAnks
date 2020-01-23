@@ -10,7 +10,7 @@ public class TestController : MonoBehaviour
     void Start()
     {
         motor = gameObject.GetComponent<TankMotor>();
-        data = gameObject.GetComponent<data>();
+        data = gameObject.GetComponent<TankData>();
     }
 
     // Update is called once per frame
