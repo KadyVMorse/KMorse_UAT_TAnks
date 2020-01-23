@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(TankData))]
 public class TankMotor : MonoBehaviour
 {
     private CharacterController characterController;
