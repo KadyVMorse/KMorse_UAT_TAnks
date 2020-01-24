@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//when this code is put on object it will add these as well because its required
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
 [RequireComponent(typeof(TankShooter))]
 public class InputController : MonoBehaviour
 {
+    // variables of differnt objects and the input is wasd and arrow keys also sets the boolean if the tank can shoot
     public enum InputScheme { WASD, arrowKeys };
     public InputScheme input = InputScheme.WASD;
     private TankData data;
@@ -26,6 +28,7 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the player can shoot then it will get the key of space and shootbut if can shoot is false thean it will wait to fire
         if (canShoot)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -38,6 +41,7 @@ public class InputController : MonoBehaviour
             }
         }
 
+        //if you are wait if it shoots the time until shoot will subtract from the time till you can unless you can shoot
         if (timeUntilcanShoot > 0) 
         {
             timeUntilcanShoot -= Time.deltaTime;
@@ -47,6 +51,7 @@ public class InputController : MonoBehaviour
             canShoot = true;
         }
 
+        //sets up the input and what they equal to on the tank
         switch (input)
         {
             case InputScheme.arrowKeys:

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CannonBall : MonoBehaviour
 {
+    //variables for the cannon ball such as damage the life of the cannon and the public game object
     public float damage;
     public float timer;
     public float cannonShelfLife = 1.5f;
@@ -11,6 +12,7 @@ public class CannonBall : MonoBehaviour
 
     void Start()
     {
+        // if damage is equal to 0 then it would be equal to 10
         if (damage == 0)
         {
             damage = 10;
@@ -22,6 +24,7 @@ public class CannonBall : MonoBehaviour
         //after a certain amount of time bullet disappers
         timer += 1.0F * Time.deltaTime;
 
+        //if timer  is more then 1 theb it will destroy the game object
         if (timer >= 1)
         {
             GameObject.Destroy(gameObject);
@@ -30,7 +33,7 @@ public class CannonBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        // gets the tank data 
         TankData otherObjData = other.gameObject.GetComponent<TankData>();
 
 
@@ -38,10 +41,11 @@ public class CannonBall : MonoBehaviour
         {
 
             otherObjData.updateHealth(damage);
-            //  AudioSource.PlayClipAtPoint(hit, Vector3.zero);
+      
 
             shooter.GetComponent<TankData>().updateDamageDone(damage);
 
+            // if game object health is equal to zero then it will destroy the object
 
             if (otherObjData.health <= 0)
             {
