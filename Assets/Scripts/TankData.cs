@@ -12,6 +12,7 @@ public class TankData : MonoBehaviour
     public float health;
     public float maxHealth = 10.0f;
     public int score = 0;
+    public int pointValue = 10;
 
      void Start()
     {
@@ -28,7 +29,7 @@ public class TankData : MonoBehaviour
     }
     public void Die()
     {
-        //This is what happems when player dies
+        //This is what happems when tank dies
     }
 
 }

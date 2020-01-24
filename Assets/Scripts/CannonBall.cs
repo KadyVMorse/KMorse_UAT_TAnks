@@ -13,4 +13,14 @@ public class CannonBall : MonoBehaviour
         // after set ammount of time,destroy the cannon ball.
 
     }
+
+  void OnCollisionEnter(Collision collision)
+    {
+        //Apply damage to what we collided with 
+
+        //Destroy the cannon ball if it collides with anything
+        Destroy(gameObject);
+    }
+
+
 }
