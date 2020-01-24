@@ -61,7 +61,7 @@ public class InputController : MonoBehaviour
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    motor.Move(-data.moveSpeed);
+                    motor.Move(-data.reverseSpeed);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
@@ -79,7 +79,7 @@ public class InputController : MonoBehaviour
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    motor.Move(-data.moveSpeed);
+                    motor.Move(-data.reverseSpeed);
                 }
                 if (Input.GetKey(KeyCode.S))
                 {

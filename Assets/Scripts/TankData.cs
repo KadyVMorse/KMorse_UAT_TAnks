@@ -6,6 +6,7 @@ public class TankData : MonoBehaviour
 {
     // sets the variables and what they are equal to also it gives the designers the abality to edit it in inspector
     public float moveSpeed = 3.0f;
+    public float reverseSpeed = 1.0f;
     public float rotateSpeed = 180.0f;
     public float shellForce = 1.0f;
     public float damageDone = 1.0f;
