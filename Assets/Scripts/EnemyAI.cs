@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public float health;
+    public float maxhealth = 10.0f;
     public GameObject cannonBall;
     public GameObject firePoint;
+
+    private float timeBtwShots;
+    public float startTimeBtwShots;
 
     private TankData data;
 
     // Start is called before the first frame update
     void Start()
     {
+        health = maxhealth;
         data = gameObject.GetComponent<TankData>();
     }
 
@@ -24,16 +30,31 @@ public class EnemyAI : MonoBehaviour
     public void Shoot()
     {
         //instaniate a bullet
+        if (timeBtwShots <= 0)
+        {
+            Instantiate(cannonBall, transform.position, transform.rotation);
+            timeBtwShots = startTimeBtwShots;
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
 
-        GameObject ourCannonBall = Instantiate(cannonBall, firePoint.transform.position, firePoint.transform.rotation);
-        CannonBall cannonBallComponet = ourCannonBall.GetComponent<CannonBall>();
-        Rigidbody cannonBody = ourCannonBall.GetComponent<Rigidbody>();
-        //apply force
 
-        cannonBody.AddForce(data.shellForce * transform.forward, ForceMode.Impulse);
-
-        //tell how much damage the cannon ball should do
-        cannonBallComponet.damage = data.damageDone;
     }
+
+    public void TankDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
 

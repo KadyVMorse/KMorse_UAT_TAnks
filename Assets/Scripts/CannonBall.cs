@@ -6,10 +6,15 @@ public class CannonBall : MonoBehaviour
 {
     public float damage;
     public float timer;
+    public float cannonShelfLife = 1.5f;
+    public GameObject shooter;
 
     void Start()
     {
-        
+        if (damage == 0)
+        {
+            damage = 10;
+        }
     }
 
     void Update()
@@ -23,15 +28,31 @@ public class CannonBall : MonoBehaviour
         }
     }
 
-    
-
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        //Apply damage to what we collided with 
-     
-        //Destroy the cannon ball if it collides with anything
-        Destroy(gameObject);
+
+        TankData otherObjData = other.gameObject.GetComponent<TankData>();
+
+
+        if (otherObjData != null)
+        {
+
+            otherObjData.updateHealth(damage);
+            //  AudioSource.PlayClipAtPoint(hit, Vector3.zero);
+
+            shooter.GetComponent<TankData>().updateDamageDone(damage);
+
+
+            if (otherObjData.health <= 0)
+            {
+                Destroy(other.gameObject);
+
+
+            }
+
+
+
+
+        }
     }
-
-
 }

@@ -18,6 +18,18 @@ public class TankData : MonoBehaviour
     {
         health = maxHealth;
     }
+    public void updateHealth(float shellDamage)
+    {
+        if (health > 0)
+        {
+            health -= shellDamage;
+        }
+    }
+
+    public void updateDamageDone(float damage)
+    {
+        damageDone += damage;
+    }
 
     public void TankDamage( float damage)
     {
@@ -29,7 +41,7 @@ public class TankData : MonoBehaviour
     }
     public void Die()
     {
-        //This is what happems when tank dies
+        Destroy(gameObject);
     }
 
 }
