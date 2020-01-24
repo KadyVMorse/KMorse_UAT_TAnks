@@ -6,12 +6,13 @@ public class TankShooter : MonoBehaviour
 {
     public GameObject cannonBall;
     public GameObject firePoint;
-    
+
+    private TankData data;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        data = gameObject.GetComponent<TankData>();
     }
 
     // Update is called once per frame
@@ -24,11 +25,14 @@ public class TankShooter : MonoBehaviour
     {
         //instaniate a bullet
 
-        GameObject ourCannonBall;
-        ourCannonBall = Instantiate(cannonBall, firePoint.transform);
-
+        GameObject ourCannonBall = Instantiate(cannonBall, firePoint.transform.position, firePoint.transform.rotation);
+        CannonBall cannonBallComponet = ourCannonBall.GetComponent<CannonBall>();
+        Rigidbody cannonBody = ourCannonBall.GetComponent<Rigidbody>();
         //apply force
-      // ourCannonBall.SendMessage("ApplyForce", TankData.)
-        
+   
+        cannonBody.AddForce(data.shellForce * transform.forward, ForceMode.Impulse);
+
+        //tell how much damage the cannon ball should do
+        cannonBallComponet.damage = data.damageDone;
     }
 }
