@@ -415,6 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4766e6991159faf49a6dba6a160b7fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1886940765}
+  avoidanceStage: 0
+  avoidanceTime: 2
+  attackMode: 0
 --- !u!114 &245885681
 MonoBehaviour:
   m_ObjectHideFlags: 0
