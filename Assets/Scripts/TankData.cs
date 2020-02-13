@@ -18,7 +18,7 @@ public class TankData : MonoBehaviour
 
      void Start()
     {
-        //states that healt equals max health
+        //states that health equals max health
         health = maxHealth;
     }
     public void updateHealth(float shellDamage)
