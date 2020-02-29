@@ -1,9 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public enum MapType
+    {
+        Seeded,
+        Random,
+        MapOfTheDay
+
+    }
+
+    public MapType mapType = MapType.Random;
+    public int mapSeed;
     public int rows;
 
     public int columns;
@@ -19,6 +30,21 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch (mapType)
+        {
+            case MapType.MapOfTheDay:
+                mapSeed = DateToInt(DateTime.Now.Date);
+
+                    break;
+            case MapType.Random:
+                mapSeed = DateToInt(DateTime.Now);
+                break;
+            case MapType.Seeded:
+                break;
+            default:
+                Debug.LogError("[MapGenerator]Map type not implemented.");
+                break;
+        }
         GeneratorGrid();
     }
 
@@ -30,11 +56,18 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject RandomRoomPrefab()
     {
-        return gridPrefabs[Random.Range(0, gridPrefabs.Length)];
+        return gridPrefabs[UnityEngine.Random.Range(0, gridPrefabs.Length)];
+    }
+
+    public int DateToInt(DateTime dateToUse)
+    {
+        return dateToUse.Year + dateToUse.Month + dateToUse.Day + dateToUse.Hour + dateToUse.Minute + dateToUse.Second + dateToUse.Millisecond;
     }
 
     public void GeneratorGrid()
     {
+
+       UnityEngine.Random.seed = mapSeed;
         grid = new Room[columns, rows];
         // for each row
         for(int row = 0;  row < rows; row++)
