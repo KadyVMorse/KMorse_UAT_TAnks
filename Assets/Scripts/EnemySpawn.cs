@@ -7,13 +7,13 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.instance.enemySpawnPoints.Add(this.gameObject.transform);
+        GameManager.instance.enemySpawnPoints.Add(this.gameObject);
 
     }
 
      void OnDestroy()
     {
-        GameManager.instance.enemySpawnPoints.Remove(this.gameObject.transform);
+        GameManager.instance.enemySpawnPoints.Remove(this.gameObject);
     }
     // Update is called once per frame
     void Update()

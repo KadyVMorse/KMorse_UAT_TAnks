@@ -343,9 +343,13 @@ GameObject:
   - component: {fileID: 14300000}
   - component: {fileID: 7161516883860148077}
   - component: {fileID: 4492309725395539634}
+  - component: {fileID: 1886940766}
+  - component: {fileID: 2544529479683612479}
+  - component: {fileID: 6372041550223655149}
+  - component: {fileID: 8102341484316714574}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,9 +402,9 @@ MonoBehaviour:
   moveSpeed: 3
   reverseSpeed: 1
   rotateSpeed: 180
-  shellForce: 1
-  damageDone: 1
-  fireRate: 1
+  shellForce: 10
+  damageDone: 10
+  fireRate: 3
   health: 0
   maxHealth: 10
   score: 0
@@ -417,6 +421,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de10ae070bdb2e84bb4dffd920a94afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1886940766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92641bd899e6824a84911c40279d9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 4903754117412884167, guid: 802ec3837e2fb3f449cd7334d82b43fd,
+    type: 3}
+  firePoint: {fileID: 7635218137490779806}
+--- !u!114 &2544529479683612479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d31336a5043994f9df2c42aa46026a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: 0
+  canShoot: 1
+--- !u!114 &6372041550223655149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84133326370c5f469b53090bbe79206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
+--- !u!114 &8102341484316714574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b35d35afd8a204d9f82d973efabf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheatPowerup: {fileID: 0}
 --- !u!1 &100014
 GameObject:
   m_ObjectHideFlags: 0
