@@ -67,38 +67,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 245885679, guid: f8c137287a723224ab9855a0a4c62522, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 245885681, guid: f8c137287a723224ab9855a0a4c62522, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6944134985635487049, guid: f8c137287a723224ab9855a0a4c62522,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 11a5c8adc9d88134dbb1adf3a452f62c, type: 2}
-    - target: {fileID: 6944134985635487051, guid: f8c137287a723224ab9855a0a4c62522,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 11a5c8adc9d88134dbb1adf3a452f62c, type: 2}
-    - target: {fileID: 6944134985635487053, guid: f8c137287a723224ab9855a0a4c62522,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 11a5c8adc9d88134dbb1adf3a452f62c, type: 2}
-    - target: {fileID: 758503267785369756, guid: f8c137287a723224ab9855a0a4c62522,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 758503267785369756, guid: f8c137287a723224ab9855a0a4c62522,
-        type: 3}
-      propertyPath: personality
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c137287a723224ab9855a0a4c62522, type: 3}

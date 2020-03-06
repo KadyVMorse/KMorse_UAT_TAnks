@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
 {
     // variables that state the arrays, game object and game mamager
     public static GameManager instance;
+
+    public GameObject levelGameObject;
     public GameObject instantiatedPlayerTank;
     public GameObject playerTankPrefab;
-    public GameObject[] enemyTanks;
+    public List<GameObject> instantiatedEnemyTanks;
+    public GameObject[] enemyTanksPrefabs;
     public List<GameObject> playerSpawnPoints;
     public List<GameObject> enemySpawnPoints;
 
@@ -28,8 +31,13 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-
-     void Update()
+     void Start()
+    {
+        instantiatedEnemyTanks = new List<GameObject>();
+        playerSpawnPoints = new List<GameObject>();
+        enemySpawnPoints = new List<GameObject>();
+    }
+    void Update()
     {
         if(instantiatedPlayerTank == null)
         {
@@ -37,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private GameObject RandomSpawnPoint(List<GameObject> spawnPoints)
+    public GameObject RandomSpawnPoint(List<GameObject> spawnPoints)
     {
         //Get a random spawn point from inside our list of spawn points.
         int spawnToGet = UnityEngine.Random.Range(0, spawnPoints.Count -1);
@@ -50,8 +58,18 @@ public class GameManager : MonoBehaviour
        instantiatedPlayerTank = Instantiate(playerTankPrefab, spawnPoint.transform.position, Quaternion.identity);
     }
 
-    public void SpawnEnmies()
+    public void SpawnEnemies()
     {
-        //write code for spawning enmies.
+        //write code for spawning enmies. // Write code for spawning enemies.
+        if (enemyTanksPrefabs.Length == 0)
+        { Debug.LogWarning("Enemy tank prefabs is empty"); }
+        for (int i = 0; i < enemyTanksPrefabs.Length; ++i)
+        {
+            if (enemySpawnPoints.Count == 0)
+            { Debug.LogWarning("Enemy spawn points list is empty."); }
+            GameObject instantiatedEnemyTank =
+                Instantiate(enemyTanksPrefabs[i], RandomSpawnPoint(enemySpawnPoints).transform.position, Quaternion.identity);
+            instantiatedEnemyTanks.Add(instantiatedEnemyTank);
+        }
     }
 }
